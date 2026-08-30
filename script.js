@@ -138,5 +138,29 @@ function startLiveStatus() {
   setInterval(fetchServerStatus, SERVER_CONFIG.refreshMs);
 }
 
+function initRevealAnimations() {
+  const revealItems = document.querySelectorAll('.reveal');
+
+  if (!('IntersectionObserver' in window)) {
+    revealItems.forEach((item) => item.classList.add('visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -30px 0px'
+  });
+
+  revealItems.forEach((item) => observer.observe(item));
+}
+
 bindContactButtons();
+initRevealAnimations();
 startLiveStatus();
