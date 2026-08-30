@@ -721,6 +721,20 @@ a {
   width: 100%;
 }
 
+.review-status {
+  min-height: 22px;
+  margin: 12px 0 0;
+  color: var(--secondary);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.review-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
 .review-list {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

@@ -30,7 +30,8 @@ const ui = {
   reviewList: document.getElementById("review-list"),
   reviewName: document.getElementById("review-name"),
   reviewText: document.getElementById("review-text"),
-  reviewSubmit: document.querySelector(".review-submit")
+  reviewSubmit: document.querySelector(".review-submit"),
+  reviewStatus: document.getElementById("review-status")
 };
 
 const contactTypes = {
@@ -148,6 +149,23 @@ const seedReviews = [
 
 let selectedStar = 5;
 let reviews = [...seedReviews];
+const REVIEW_STORAGE_KEY = 'aetherwind_review_submitted';
+
+function getHasReviewed() {
+  try {
+    return localStorage.getItem(REVIEW_STORAGE_KEY) === 'true';
+  } catch (error) {
+    return false;
+  }
+}
+
+function setHasReviewed(value) {
+  try {
+    localStorage.setItem(REVIEW_STORAGE_KEY, String(value));
+  } catch (error) {
+    // Ignore storage failures in private or restricted browsers.
+  }
+}
 
 function renderStars(rating) {
   return '★'.repeat(Math.round(rating)) + '☆'.repeat(5 - Math.round(rating));
@@ -189,6 +207,13 @@ function setSelectedStars(value) {
 }
 
 function submitReview() {
+  if (getHasReviewed()) {
+    if (ui.reviewStatus) {
+      ui.reviewStatus.textContent = 'You have already left a review on this device.';
+    }
+    return;
+  }
+
   const name = ui.reviewName.value.trim() || 'Anonymous';
   const text = ui.reviewText.value.trim();
 
@@ -198,11 +223,25 @@ function submitReview() {
   }
 
   reviews.unshift({ name, rating: selectedStar, text });
+  setHasReviewed(true);
   ui.reviewName.value = '';
   ui.reviewText.value = '';
   setSelectedStars(5);
   updateRatingSummary();
   renderReviewList();
+
+  if (ui.reviewStatus) {
+    ui.reviewStatus.textContent = 'Thanks for the review! You can only leave one review per device.';
+  }
+
+  if (ui.reviewSubmit) {
+    ui.reviewSubmit.disabled = true;
+  }
+
+  ['review-name', 'review-text'].forEach((id) => {
+    const field = document.getElementById(id);
+    if (field) field.disabled = true;
+  });
 }
 
 function initReviews() {
@@ -210,6 +249,21 @@ function initReviews() {
   starButtons.forEach((button) => {
     button.addEventListener('click', () => setSelectedStars(Number(button.dataset.value)));
   });
+
+  if (getHasReviewed()) {
+    if (ui.reviewSubmit) {
+      ui.reviewSubmit.disabled = true;
+    }
+
+    ['review-name', 'review-text'].forEach((id) => {
+      const field = document.getElementById(id);
+      if (field) field.disabled = true;
+    });
+
+    if (ui.reviewStatus) {
+      ui.reviewStatus.textContent = 'You have already left a review on this device.';
+    }
+  }
 
   if (ui.reviewSubmit) {
     ui.reviewSubmit.addEventListener('click', submitReview);
