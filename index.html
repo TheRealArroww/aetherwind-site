@@ -29,6 +29,7 @@
           <a href="#status">Server Status</a>
           <a href="#staff">Staff</a>
           <a href="#support">Support</a>
+          <a href="#reviews">Reviews</a>
           <a href="#community">Community</a>
         </div>
         <div class="nav-actions">
@@ -231,6 +232,52 @@
             <button class="btn btn-ghost appeal-trigger" type="button" data-type="appeal">Ban Appeal</button>
           </div>
         </div>
+      </section>
+
+      <section class="reviews container" id="reviews">
+        <div class="section-heading reveal">
+          <p class="eyebrow">REVIEWS</p>
+          <h2>Players rate Aetherwind highly for survival, community, and energy.</h2>
+        </div>
+
+        <div class="reviews-layout">
+          <div class="rating-summary reveal">
+            <div class="rating-total-wrap">
+              <div class="rating-total" id="average-rating">4.8</div>
+              <div class="rating-stars" id="average-stars" aria-label="Average rating">★★★★★</div>
+            </div>
+            <p class="rating-copy"><strong id="review-count">128</strong> reviews from the community</p>
+            <div class="rating-scale">
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+              <span>4</span>
+              <span>5</span>
+            </div>
+          </div>
+
+          <div class="review-form reveal">
+            <h3>Leave a review</h3>
+            <div class="star-picker" aria-label="Choose a star rating">
+              <button type="button" class="star-btn" data-value="1" aria-label="Rate 1 star">★</button>
+              <button type="button" class="star-btn" data-value="2" aria-label="Rate 2 stars">★</button>
+              <button type="button" class="star-btn" data-value="3" aria-label="Rate 3 stars">★</button>
+              <button type="button" class="star-btn" data-value="4" aria-label="Rate 4 stars">★</button>
+              <button type="button" class="star-btn" data-value="5" aria-label="Rate 5 stars">★</button>
+            </div>
+            <label class="review-field">
+              <span>Your name</span>
+              <input id="review-name" type="text" maxlength="32" placeholder="Player name" />
+            </label>
+            <label class="review-field">
+              <span>Your review</span>
+              <textarea id="review-text" rows="4" maxlength="220" placeholder="Tell the community what you love about Aetherwind..."></textarea>
+            </label>
+            <button class="btn btn-primary review-submit" type="button">Submit Review</button>
+          </div>
+        </div>
+
+        <div class="review-list" id="review-list" aria-live="polite"></div>
       </section>
 
       <section class="community container" id="community">

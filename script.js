@@ -23,7 +23,14 @@ const ui = {
   modal: document.getElementById("contact-modal"),
   modalTitle: document.getElementById("modal-title"),
   modalEmail: document.querySelector(".modal-email"),
-  modalMessage: document.getElementById("modal-message")
+  modalMessage: document.getElementById("modal-message"),
+  averageRating: document.getElementById("average-rating"),
+  averageStars: document.getElementById("average-stars"),
+  reviewCount: document.getElementById("review-count"),
+  reviewList: document.getElementById("review-list"),
+  reviewName: document.getElementById("review-name"),
+  reviewText: document.getElementById("review-text"),
+  reviewSubmit: document.querySelector(".review-submit")
 };
 
 const contactTypes = {
@@ -133,6 +140,85 @@ async function fetchServerStatus() {
   }
 }
 
+const seedReviews = [
+  { name: "SkyRift", rating: 5, text: "The community is super active and the builds are incredible. Every event feels organized and fun." },
+  { name: "LunaBlock", rating: 5, text: "Aetherwind feels like a proper survival server with a strong vibe, fair staff, and memorable moments." },
+  { name: "DreadPine", rating: 4, text: "Great server, solid players, and a really welcoming Discord. The world feels alive and creative." }
+];
+
+let selectedStar = 5;
+let reviews = [...seedReviews];
+
+function renderStars(rating) {
+  return '★'.repeat(Math.round(rating)) + '☆'.repeat(5 - Math.round(rating));
+}
+
+function renderReviewList() {
+  if (!ui.reviewList) return;
+
+  ui.reviewList.innerHTML = reviews.map((review) => `
+    <article class="review-item reveal">
+      <div class="review-header">
+        <p class="review-author">${review.name}</p>
+        <span class="review-stars" aria-label="${review.rating} out of 5 stars">${renderStars(review.rating)}</span>
+      </div>
+      <p class="review-text">${review.text}</p>
+    </article>
+  `).join('');
+
+  const revealItems = document.querySelectorAll('.review-item.reveal');
+  revealItems.forEach((item) => item.classList.add('visible'));
+}
+
+function updateRatingSummary() {
+  const total = reviews.reduce((sum, review) => sum + review.rating, 0);
+  const average = total / reviews.length;
+  const roundedAverage = average.toFixed(1);
+
+  ui.averageRating.textContent = roundedAverage;
+  ui.averageStars.textContent = renderStars(average);
+  ui.reviewCount.textContent = String(reviews.length);
+}
+
+function setSelectedStars(value) {
+  selectedStar = value;
+  const stars = document.querySelectorAll('.star-btn');
+  stars.forEach((star) => {
+    star.classList.toggle('active', Number(star.dataset.value) <= value);
+  });
+}
+
+function submitReview() {
+  const name = ui.reviewName.value.trim() || 'Anonymous';
+  const text = ui.reviewText.value.trim();
+
+  if (!text) {
+    ui.reviewText.focus();
+    return;
+  }
+
+  reviews.unshift({ name, rating: selectedStar, text });
+  ui.reviewName.value = '';
+  ui.reviewText.value = '';
+  setSelectedStars(5);
+  updateRatingSummary();
+  renderReviewList();
+}
+
+function initReviews() {
+  const starButtons = document.querySelectorAll('.star-btn');
+  starButtons.forEach((button) => {
+    button.addEventListener('click', () => setSelectedStars(Number(button.dataset.value)));
+  });
+
+  if (ui.reviewSubmit) {
+    ui.reviewSubmit.addEventListener('click', submitReview);
+  }
+
+  updateRatingSummary();
+  renderReviewList();
+}
+
 function startLiveStatus() {
   fetchServerStatus();
   setInterval(fetchServerStatus, SERVER_CONFIG.refreshMs);
@@ -163,4 +249,5 @@ function initRevealAnimations() {
 
 bindContactButtons();
 initRevealAnimations();
+initReviews();
 startLiveStatus();
