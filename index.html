@@ -32,6 +32,7 @@
         </div>
         <div class="nav-actions">
           <a class="btn btn-secondary" href="#status">Check Status</a>
+          <a class="btn btn-secondary" href="#" id="support-top-btn">Support</a>
           <a class="btn btn-primary" href="#join">Join Discord</a>
         </div>
       </nav>
@@ -43,11 +44,11 @@
         <span>💬</span>
         Join Discord
       </a>
-      <a class="sidebar-btn" href="https://discord.gg/tecpsFdzv4" target="_blank" rel="noreferrer">
+      <a class="sidebar-btn report-btn" href="#" role="button">
         <span>⚠️</span>
         Report a Problem
       </a>
-      <a class="sidebar-btn" href="https://discord.gg/tecpsFdzv4" target="_blank" rel="noreferrer">
+      <a class="sidebar-btn report-btn" href="#" role="button">
         <span>🐛</span>
         Report a Bug
       </a>
@@ -118,7 +119,7 @@
 
           <div class="button-stack">
             <a class="btn btn-primary full" href="https://discord.gg/tecpsFdzv4" target="_blank" rel="noreferrer">Join Discord</a>
-            <a class="btn btn-secondary full" href="https://discord.gg/tecpsFdzv4" target="_blank" rel="noreferrer">Report a Problem</a>
+            <a class="btn btn-secondary full report-btn" href="#" role="button">Report a Problem</a>
           </div>
         </div>
       </section>
@@ -198,7 +199,7 @@
           </div>
           <div class="community-actions">
             <a class="btn btn-primary" href="https://discord.gg/tecpsFdzv4" target="_blank" rel="noreferrer">Join Discord</a>
-            <a class="btn btn-ghost" href="https://discord.gg/tecpsFdzv4" target="_blank" rel="noreferrer">Report a Problem</a>
+            <a class="btn btn-ghost report-btn" href="#" role="button">Report a Problem</a>
           </div>
         </div>
       </section>
@@ -208,9 +209,24 @@
       <p>© 2026 Aetherwind SMP</p>
       <div class="footer-links">
         <a href="https://discord.gg/tecpsFdzv4" target="_blank" rel="noreferrer">Discord</a>
-        <a href="https://discord.gg/tecpsFdzv4" target="_blank" rel="noreferrer">Support</a>
+        <a class="support-btn" href="#">Support</a>
       </div>
     </footer>
+
+    <!-- Support modal -->
+    <div id="support-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="support-title">
+      <div class="modal-overlay" data-close="true"></div>
+      <div class="modal-panel">
+        <button class="modal-close" aria-label="Close">✕</button>
+        <h3 id="support-title">Contact Support</h3>
+        <p class="modal-email"><a id="support-email" href="mailto:aetherwind.support@gmail.com">aetherwind.support@gmail.com</a></p>
+        <p class="modal-note">We will get back to you as soon as possible.</p>
+        <div class="modal-actions">
+          <a id="mailto-link" class="btn btn-primary" href="mailto:aetherwind.support@gmail.com">Email Now</a>
+          <button id="copy-email" class="btn btn-secondary">Copy Email</button>
+        </div>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>
