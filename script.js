@@ -22,24 +22,34 @@ const ui = {
   statusMessage: document.getElementById("status-message"),
   modal: document.getElementById("contact-modal"),
   modalTitle: document.getElementById("modal-title"),
+  modalEmail: document.querySelector(".modal-email"),
   modalMessage: document.getElementById("modal-message")
 };
 
 const contactTypes = {
   support: {
     title: "Support",
+    email: "aetherwind.support@gmail.com",
     message: "We will get back to you as soon as possible."
   },
   problem: {
     title: "Report a Problem",
+    email: "aetherwind.support@gmail.com",
     message: "We will get back to you as soon as possible. Please include as much detail as possible about the issue."
   },
   bug: {
     title: "Report a Bug",
+    email: "aetherwind.support@gmail.com",
     message: "We will get back to you as soon as possible. Include your username, steps to recreate, and screenshots if possible."
+  },
+  player: {
+    title: "Report a Player",
+    email: "aetherwind.support@gmail.com",
+    message: "We will get back to you as soon as possible. Please include the player name, the incident, and any evidence you have."
   },
   appeal: {
     title: "Ban Appeal",
+    email: "aetherwind.support@gmail.com",
     message: "We will get back to you as soon as possible. Please include your username, the ban reason, and why you believe the penalty should be reviewed."
   }
 };
@@ -47,6 +57,7 @@ const contactTypes = {
 function openContactModal(type) {
   const config = contactTypes[type] || contactTypes.support;
   ui.modalTitle.textContent = config.title;
+  ui.modalEmail.textContent = config.email;
   ui.modalMessage.textContent = config.message;
   ui.modal.classList.add("visible");
   ui.modal.setAttribute("aria-hidden", "false");
