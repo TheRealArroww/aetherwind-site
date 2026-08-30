@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Aetherwind SMP is a dark, atmospheric Minecraft and Discord community with active survival gameplay, events, custom builds, and an elite social hub."
+    />
+    <title>Aetherwind SMP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Orbitron:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background-grid"></div>
+    <header class="topbar">
+      <nav class="nav container">
+        <div class="brand" aria-label="Aetherwind SMP home">
+          <span class="brand-mark">A</span>
+          <span class="brand-text">AETHERWIND SMP</span>
+        </div>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#status">Server Status</a>
+          <a href="#staff">Staff</a>
+          <a href="#community">Community</a>
+        </div>
+        <div class="nav-actions">
+          <a class="btn btn-secondary" href="#status">Check Status</a>
+          <a class="btn btn-primary" href="#join">Join Discord</a>
+        </div>
+      </nav>
+    </header>
+
+    <aside class="quick-sidebar" aria-label="Quick support actions">
+      <div class="sidebar-header">Quick Actions</div>
+      <a class="sidebar-btn primary" href="https://discord.gg/tecpsFdzv4" target="_blank" rel="noreferrer">
+        <span>💬</span>
+        Join Discord
+      </a>
+      <a class="sidebar-btn" href="https://discord.gg/tecpsFdzv4" target="_blank" rel="noreferrer">
+        <span>⚠️</span>
+        Report a Problem
+      </a>
+      <a class="sidebar-btn" href="https://discord.gg/tecpsFdzv4" target="_blank" rel="noreferrer">
+        <span>🐛</span>
+        Report a Bug
+      </a>
+    </aside>
+
+    <main>
+      <section class="hero container">
+        <div class="hero-copy">
+          <p class="eyebrow">SURVIVAL • COMMUNITY • ADVENTURE</p>
+          <h1>Forge your legacy in the skies of <span>Aetherwind</span>.</h1>
+          <p class="lead">
+            Aetherwind SMP is a bold Minecraft survival server with a gritty, atmospheric community,
+            creative builds, PvP moments, and a Discord hub built for players who love to build,
+            explore, and wreck the rules together.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://discord.gg/tecpsFdzv4" target="_blank" rel="noreferrer">Join Discord</a>
+            <a class="btn btn-ghost" href="#status">View Server Status</a>
+          </div>
+          <ul class="hero-meta">
+            <li><strong>24/7</strong><span>World uptime</span></li>
+            <li><strong>Custom</strong><span>Game events</span></li>
+            <li><strong>Friendly</strong><span>Community vibes</span></li>
+          </ul>
+        </div>
+
+        <div class="hero-panel" id="join">
+          <div class="panel-header">
+            <span class="dot"></span>
+            <span>SERVER CORE</span>
+          </div>
+
+          <div class="server-box">
+            <div class="server-line">
+              <span class="label">JAVA IP</span>
+              <span class="value">37.72.171.158:50042</span>
+            </div>
+            <div class="server-line">
+              <span class="label">BEDROCK IP</span>
+              <span class="value">37.72.171.158</span>
+            </div>
+            <div class="server-line">
+              <span class="label">BEDROCK PORT</span>
+              <span class="value">50043</span>
+            </div>
+          </div>
+
+          <div class="status-card" id="status">
+            <div class="status-topline">
+              <span class="status-text">Status</span>
+              <span id="status-indicator" class="status-indicator online">ONLINE</span>
+            </div>
+            <div class="status-stats">
+              <div>
+                <span class="stat-label">Players</span>
+                <strong id="player-count">0</strong>
+              </div>
+              <div>
+                <span class="stat-label">Capacity</span>
+                <strong>50</strong>
+              </div>
+            </div>
+            <div class="status-bar">
+              <span id="player-bar"></span>
+            </div>
+            <p id="status-message">Checking live server data...</p>
+          </div>
+
+          <div class="button-stack">
+            <a class="btn btn-primary full" href="https://discord.gg/tecpsFdzv4" target="_blank" rel="noreferrer">Join Discord</a>
+            <a class="btn btn-secondary full" href="https://discord.gg/tecpsFdzv4" target="_blank" rel="noreferrer">Report a Problem</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="features container" id="features">
+        <div class="section-heading">
+          <p class="eyebrow">WHY PLAY</p>
+          <h2>Built for players who live for the next raid, build, and memory.</h2>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="icon">✦</div>
+            <h3>Skyline Survival</h3>
+            <p>Explore wide biomes, build massive projects, and survive in a world designed for creativity and tension.</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon">⚔</div>
+            <h3>Events & PvP</h3>
+            <p>Join community events, raids, and PvP moments that keep the server alive and the action unpredictable.</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon">◎</div>
+            <h3>Discord Hub</h3>
+            <p>Stay connected with the community, get updates, coordinate builds, and share your server stories in real time.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="staff container" id="staff">
+        <div class="section-heading">
+          <p class="eyebrow">STAFF</p>
+          <h2>Meet the team keeping Aetherwind in motion.</h2>
+        </div>
+
+        <div class="staff-grid">
+          <div class="staff-card owner">
+            <span class="role">Owner</span>
+            <h3>TheRealArroww</h3>
+          </div>
+          <div class="staff-card owner">
+            <span class="role">Owner</span>
+            <h3>i_am_nugget</h3>
+          </div>
+          <div class="staff-card overseer">
+            <span class="role">Overseer</span>
+            <h3>Flam</h3>
+          </div>
+          <div class="staff-card overseer">
+            <span class="role">Overseer</span>
+            <h3>gabbagoo</h3>
+          </div>
+          <div class="staff-card manager">
+            <span class="role">Event Manager</span>
+            <h3>nicobuster101</h3>
+          </div>
+          <div class="staff-card mod">
+            <span class="role">Jr Moderator</span>
+            <h3>v1ct0r</h3>
+          </div>
+          <div class="staff-card helper">
+            <span class="role">Helper</span>
+            <h3>Rev</h3>
+          </div>
+          <div class="staff-card trainee">
+            <span class="role">Trainee</span>
+            <h3>Riku_76Xx</h3>
+          </div>
+        </div>
+      </section>
+
+      <section class="community container" id="community">
+        <div class="community-card">
+          <div>
+            <p class="eyebrow">COMMUNITY</p>
+            <h2>Join the storm. Build the future.</h2>
+          </div>
+          <div class="community-actions">
+            <a class="btn btn-primary" href="https://discord.gg/tecpsFdzv4" target="_blank" rel="noreferrer">Join Discord</a>
+            <a class="btn btn-ghost" href="https://discord.gg/tecpsFdzv4" target="_blank" rel="noreferrer">Report a Problem</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer container">
+      <p>© 2026 Aetherwind SMP</p>
+      <div class="footer-links">
+        <a href="https://discord.gg/tecpsFdzv4" target="_blank" rel="noreferrer">Discord</a>
+        <a href="https://discord.gg/tecpsFdzv4" target="_blank" rel="noreferrer">Support</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
