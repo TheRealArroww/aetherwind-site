@@ -2,6 +2,7 @@ const SERVER_CONFIG = {
   ip: "37.72.171.158:50042",
   discordUrl: "https://discord.gg/tecpsFdzv4",
   reportUrl: "https://discord.gg/tecpsFdzv4",
+  supportEmail: "aetherwind.support@gmail.com",
   maxPlayers: 50,
   refreshMs: 20000,
   fallback: {
@@ -18,8 +19,72 @@ const ui = {
   statusIndicator: document.getElementById("status-indicator"),
   playerCount: document.getElementById("player-count"),
   playerBar: document.getElementById("player-bar"),
-  statusMessage: document.getElementById("status-message")
+  statusMessage: document.getElementById("status-message"),
+  modal: document.getElementById("contact-modal"),
+  modalTitle: document.getElementById("modal-title"),
+  modalMessage: document.getElementById("modal-message")
 };
+
+const contactTypes = {
+  support: {
+    title: "Support",
+    message: "We will get back to you as soon as possible."
+  },
+  problem: {
+    title: "Report a Problem",
+    message: "We will get back to you as soon as possible. Please include as much detail as possible about the issue."
+  },
+  bug: {
+    title: "Report a Bug",
+    message: "We will get back to you as soon as possible. Include your username, steps to recreate, and screenshots if possible."
+  },
+  appeal: {
+    title: "Ban Appeal",
+    message: "We will get back to you as soon as possible. Please include your username, the ban reason, and why you believe the penalty should be reviewed."
+  }
+};
+
+function openContactModal(type) {
+  const config = contactTypes[type] || contactTypes.support;
+  ui.modalTitle.textContent = config.title;
+  ui.modalMessage.textContent = config.message;
+  ui.modal.classList.add("visible");
+  ui.modal.setAttribute("aria-hidden", "false");
+}
+
+function closeContactModal() {
+  ui.modal.classList.remove("visible");
+  ui.modal.setAttribute("aria-hidden", "true");
+}
+
+function bindContactButtons() {
+  document.querySelectorAll(".support-trigger").forEach((button) => {
+    button.addEventListener("click", () => openContactModal("support"));
+  });
+
+  document.querySelectorAll(".report-trigger").forEach((button) => {
+    button.addEventListener("click", () => openContactModal(button.dataset.type || "problem"));
+  });
+
+  document.querySelectorAll(".appeal-trigger").forEach((button) => {
+    button.addEventListener("click", () => openContactModal("appeal"));
+  });
+
+  const closeButton = document.querySelector(".modal-close");
+  closeButton.addEventListener("click", closeContactModal);
+
+  ui.modal.addEventListener("click", (event) => {
+    if (event.target === ui.modal) {
+      closeContactModal();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeContactModal();
+    }
+  });
+}
 
 async function fetchServerStatus() {
   const apiUrl = `https://api.mcsrvstat.us/2/${SERVER_CONFIG.ip}`;
@@ -62,4 +127,5 @@ function startLiveStatus() {
   setInterval(fetchServerStatus, SERVER_CONFIG.refreshMs);
 }
 
+bindContactButtons();
 startLiveStatus();
