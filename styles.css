@@ -448,7 +448,7 @@ a {
   border: 1px solid var(--border);
   background: linear-gradient(180deg, rgba(17, 23, 34, 0.9), rgba(12, 17, 27, 0.95));
   box-shadow: inset 0 1px 0 rgba(172, 195, 255, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
 
 .staff-card .role {
@@ -498,7 +498,7 @@ a {
   background: linear-gradient(180deg, rgba(14, 21, 32, 0.9), rgba(12, 17, 26, 0.93));
   border: 1px solid var(--border);
   box-shadow: inset 0 1px 0 rgba(164, 183, 255, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
 
 .feature-card:hover,
@@ -508,9 +508,9 @@ a {
 .hero-panel:hover,
 .server-box:hover,
 .status-card:hover {
-  transform: translateY(-4px) scale(1.01);
-  border-color: rgba(118, 175, 255, 0.42);
-  box-shadow: 0 0 18px rgba(58, 171, 255, 0.1), inset 0 1px 0 rgba(164, 183, 255, 0.08);
+  transform: translateY(-5px) scale(1.02);
+  border-color: rgba(118, 175, 255, 0.45);
+  box-shadow: 0 0 18px rgba(62, 166, 255, 0.18), 0 0 28px rgba(102, 168, 255, 0.08), inset 0 0 0 1px rgba(147, 185, 255, 0.15);
 }
 
 .icon {
@@ -552,7 +552,7 @@ a {
   border-radius: 18px;
   background: linear-gradient(180deg, rgba(15, 22, 33, 0.96), rgba(11, 17, 26, 0.96));
   border: 1px solid var(--border);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
 
 .support-card.danger {
@@ -602,7 +602,7 @@ a {
   background: linear-gradient(135deg, rgba(11, 17, 30, 0.96), rgba(16, 27, 46, 1));
   border: 1px solid var(--border);
   box-shadow: 0 20px 60px rgba(16, 29, 51, 0.46);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
 
 .community-actions {
@@ -654,13 +654,13 @@ a {
   text-decoration: none;
   font-size: 0.82rem;
   font-weight: 700;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
 }
 
 .sidebar-btn:hover {
-  transform: translateX(-2px) scale(1.01);
-  border-color: rgba(126, 155, 255, 0.4);
-  box-shadow: 0 0 18px rgba(58, 171, 255, 0.15);
+  transform: translateX(-2px) scale(1.03);
+  border-color: rgba(126, 155, 255, 0.44);
+  box-shadow: 0 0 20px rgba(62, 166, 255, 0.18), 0 0 28px rgba(110, 180, 255, 0.08);
 }
 
 .sidebar-btn.primary {
